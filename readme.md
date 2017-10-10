@@ -13,7 +13,8 @@ Les technolgies utilisées pour realiser le projet sont les suivantes:
 
 ### Installation
 
-my-server requiet Node.js v4+ pour fonctionner
+my-server requiet Node.js v4+ pour fonctionner 
+([installation de Node.js](https://nodejs.org/en/download/))
 
 - cloner le project dans un repertoir quelconque que nous allons appeler ici /racine et ce deplacer dans le /racine
 ```sh
