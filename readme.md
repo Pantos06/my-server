@@ -17,9 +17,14 @@ my-server requiet Node.js v4+ pour fonctionner
 
 - cloner le project dans un repertoir quelconque que nous allons appeler ici /racine et ce deplacer dans le /racine
 ```sh
-$
+$ git clone https://github.com/Pantos06/my-server.git
 ```
-- Le projet requiert NodJs pour fonctionner. Dont au preable NodeJs doi être installer sur la machine (future serveur)
+- Installer les dépendances
 ```sh
-$
+$ npm install
 ```
+- Demarrer le serveur
+```sh
+$ node server.js
+```
+- Rendez-vous a l'adresse http://localhost:8181/ et vous verez l'application en excution
