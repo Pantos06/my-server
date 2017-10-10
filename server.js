@@ -37,6 +37,7 @@ app.get('/toDownload/:file', function(req,res, next){
 				return res.sendStatus(SOME_ERR); // 404, maybe 500 depending on err
 			}
 		} else {
+			console.log('CALL URL: /toDownload/re.params.file')
 			console.log('Download ' + req.params.file + " successfull");
 			//res.sendFile( __dirname +'/app.html');
 		}
