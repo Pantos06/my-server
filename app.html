@@ -4,7 +4,7 @@
 	<h1>Welcome To My Server!</h1>
 	<marquee>HI!!!</marquee>
 	
-	<h2>Downloads</h3>
+	<h2>Downloads</h2>
 	<ul id="list-files"></ul>
 	
 </body>
@@ -19,7 +19,7 @@
 		var li = document.createElement("li");
 		var a = document.createElement("a");
 		a.setAttribute("href", "http://localhost:8181/toDownload/" + obj[i]);
-		a.appendChild(document.createTextNode("Element " + obj[i]));
+		a.appendChild(document.createTextNode(obj[i]));
 		li.appendChild(a);
 		ul.appendChild(li);
 		ul.appendChild(document.createElement("br"));
