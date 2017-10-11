@@ -6,6 +6,7 @@ var fs = require("fs");
 //var dirTree = require('directory-tree');
 
 const REPOSITORY = './toDownload/';
+const _myview = __dirname + '/public/view/';
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -13,16 +14,18 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(express.static('public'));
+
 app.get('/index',function(req,res){
-  res.sendFile( __dirname +'/app.html');
+  res.sendFile( _myview +'app.html');
 });
 
 app.get('/app',function(req,res){
-  res.sendFile( __dirname +'/app.html');
+  res.sendFile( _myview + 'app.html');
 });
 
 app.get('/',  function(req,res){
-  res.sendFile( __dirname +'/app.html');
+  res.sendFile( _myview + 'app.html');
 });
 
 app.get('/toDownload/:file', function(req,res, next){
@@ -52,7 +55,7 @@ app.get('/all', function(req, res){
 });
 
 var server = app.listen(8181, function () {
- 
+ console.log('/root = ' + __dirname);
   var host = "127.0.0.1"
   var port = server.address().port
 
