@@ -12,6 +12,9 @@
 </body>
 
 <script>
+var ADDRESS = 'localhost';
+var PORT = 8181;
+var BASE_URL = 'http://' + ADDRESS + ':' + PORT; 
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -20,7 +23,7 @@
 	  for(var i = 0; i < obj.length; i++){
 		var li = document.createElement("li");
 		var a = document.createElement("a");
-		a.setAttribute("href", "http://localhost:8181/toDownload/" + obj[i]);
+		a.setAttribute("href", BASE_URL + "/toDownload/" + obj[i]);
 		a.appendChild(document.createTextNode(obj[i]));
 		li.appendChild(a);
 		ul.appendChild(li);
@@ -29,7 +32,7 @@
 	  }
     }
   };
-  xhttp.open("GET", "http://localhost:8181/all", true);
+  xhttp.open("GET", BASE_URL + "/all", true);
   xhttp.send();
 </script>
 	
