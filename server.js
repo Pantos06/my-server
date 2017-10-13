@@ -16,16 +16,8 @@ app.use(function(req, res, next) {
 
 app.use(express.static('public'));
 
-app.get('/index',function(req,res){
+app.get('/index|(app|/)',function(req,res){
   res.sendFile( _myview +'app.html');
-});
-
-app.get('/app',function(req,res){
-  res.sendFile( _myview + 'app.html');
-});
-
-app.get('/',  function(req,res){
-  res.sendFile( _myview + 'app.html');
 });
 
 app.get('/toDownload/:file', function(req,res, next){
@@ -42,16 +34,24 @@ app.get('/toDownload/:file', function(req,res, next){
 		} else {
 			console.log('CALL URL: /toDownload/re.params.file')
 			console.log('Download ' + req.params.file + " successfull");
-			//res.sendFile( __dirname +'/app.html');
 		}
 	});
 });
 
 app.get('/all', function(req, res){
-	console.log("CALL URL /all ");
-	var data = fs.readdirSync(REPOSITORY);
-	console.log(data);
-	res.json(data);
+	var path = REPOSITORY;
+	fs.readdir(path, function(err, files){
+		var data = [];
+		for(var i = 0; i < files.length ; i++) {
+			var stats = fs.statSync(path + files[i]);
+			var fullname = files[i];
+			var name = (files[i].split('.'))[0];
+			var type = (files[i].split('.'))[1];
+			data.push({fullname: fullname, name: name, type:type, size: stats['size']});		
+		}
+		console.log("CALL URL /all ");
+		res.json(data);
+	});
 });
 
 var server = app.listen(8181, function () {

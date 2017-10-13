@@ -8,32 +8,7 @@
 	
 	<h2>Downloads</h2>
 	<ul id="list-files"></ul>
-	
-</body>
 
-<script>
-var ADDRESS = 'localhost';
-var PORT = 8181;
-var BASE_URL = 'http://' + ADDRESS + ':' + PORT; 
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-	  var obj = JSON.parse(this.responseText);
-	  var ul = document.getElementById("list-files");
-	  for(var i = 0; i < obj.length; i++){
-		var li = document.createElement("li");
-		var a = document.createElement("a");
-		a.setAttribute("href", BASE_URL + "/toDownload/" + obj[i]);
-		a.appendChild(document.createTextNode(obj[i]));
-		li.appendChild(a);
-		ul.appendChild(li);
-		ul.appendChild(document.createElement("br"));
-		console.log(obj[i]);
-	  }
-    }
-  };
-  xhttp.open("GET", BASE_URL + "/all", true);
-  xhttp.send();
-</script>
-	
+	<script src="js/app.js"></script>
+</body>
 </html>
