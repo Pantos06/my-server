@@ -6,3 +6,4 @@
 - [ ] Offrir la possibilité de ranger (Ex. par ordre croissant, decroissant en fonction du type, du nom)
 - [ ] Permetre de selectioner une liste de fichier et de télécharger
 -[...] P.p
+-[] ----
