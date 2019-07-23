@@ -30,7 +30,7 @@ $ node server.js
 ```
 - Rendez-vous a l'adresse http://localhost:8181/ et vous verez l'application en excution
 
-
+|---------------|--------------------------------------------------------------------|
 | __URL__       | [/routen-service/v1/all](http://localhost:8030/routen-service/all) |
 |__Method__     | __GET__|
 |__URL Params__ | None|
