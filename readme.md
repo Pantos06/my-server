@@ -30,6 +30,7 @@ $ node server.js
 ```
 - Rendez-vous a l'adresse http://localhost:8181/ et vous verez l'application en excution
 
+|               |                                                                    |
 |---------------|--------------------------------------------------------------------|
 | __URL__       | [/routen-service/v1/all](http://localhost:8030/routen-service/all) |
 |__Method__     | __GET__|
@@ -38,3 +39,37 @@ $ node server.js
 |__Success Response__| 
  - __Code__: 200 
  - __Conten__: {}|
+
+
+
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
+
+<table>
+ <tr>
+  <th colspan="2">Get all rroute in the system</th>
+ </tr>
+  <tr> <td>URl:</td><td><a href='http://localhost:8030/routen-service/all'>/routen-service/v1/all</a></td></tr>
+ <tr> <td>Method:</td><td>GET</a></td> </tr>
+ <tr> <td>URL Params:</td><td>None</td> </tr>
+ <tr> <td>Data Params:</td><td>None</td> </tr>
+ <tr> 
+  <td>Success Response:</td>
+ <td>
+  <ul>
+   <li>Code: 200</li>
+   <li>Content: [<br/>
+   {id: 1, name: 'Route1', dauer: 10, beschreibung: 'Eine beschreibung', stationen: [
+    {routeId: 1, stationId: 1, position:2, station: {id:1, dauer: 5, kuztext: 'Fußbalmuseum'}, ...]} <br/>
+	{id: 1, name: 'Route1', dauer: 10, beschreibung: 'Eine beschreibung', stationen: [
+    routeId: 1, stationId: 1, position:2, station: {id:1, dauer: 5, kuztext: 'Fußbalmuseum'}}, <br/>
+	...
+	]</li>
+  </ul>
+  </td> 
+ </tr>
+ <tr> <td>Error Response:</td><td>None</a></td> </tr>
+</table>
