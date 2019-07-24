@@ -30,46 +30,97 @@ $ node server.js
 ```
 - Rendez-vous a l'adresse http://localhost:8181/ et vous verez l'application en excution
 
-|               |                                                                    |
-|---------------|--------------------------------------------------------------------|
-| __URL__       | [/routen-service/v1/all](http://localhost:8030/routen-service/all) |
-|__Method__     | __GET__|
-|__URL Params__ | None|
-|__Data Params__| None|
-|__Success Response__| 
- - __Code__: 200 
- - __Conten__: {}|
 
+## RoutenService
 
-
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
+Die RoutenService is auf diese URL <a href='http://localhost:8030/'>http://localhost:8030/</a> abzurufen und stellt die folgenden Schnittstellen zur Verfügung:
+<table>
+ <tr>
+  <th colspan="2"><center>Alle Routen des Systems Abfragen</center></th>
+ </tr>
+  <tr> <th>URl:</th><td><a href='http://localhost:8030/routen-service/v1/all'>/routen-service/v1/all</a></td></tr>
+ <tr> <th>Method:</th><td>GET</a></td> </tr>
+ <tr> <th>URL Params:</th><td>None</td> </tr>
+ <tr> <th>Data Params:</th><td>None</td> </tr>
+ <tr> 
+  <th>Success Response:</th>
+ <td>
+	<ul>
+	<li>Code: 200</li>
+	<li>Content:
+	   <code>[{id: 1, name: 'Route1', dauer: 10, beschreibung: 'Eine beschreibung', 
+	   stationen: [{routeId: 1, stationId: 1, position:2, 
+	    station: {id:1, dauer: 5, kuztext: 'Fußbalmuseum'}}, ...]}, ...]</code>
+	</li>
+	</ul>
+  </td> 
+ </tr>
+ <tr> <th>Error Response:</th><td>Not implemented</a></td> </tr>
+</table>
 
 <table>
  <tr>
-  <th colspan="2">Get all rroute in the system</th>
+  <th colspan="2"><center>Suchen eine Route nach ihrer Id</center></th>
  </tr>
-  <tr> <td>URl:</td><td><a href='http://localhost:8030/routen-service/all'>/routen-service/v1/all</a></td></tr>
- <tr> <td>Method:</td><td>GET</a></td> </tr>
- <tr> <td>URL Params:</td><td>None</td> </tr>
- <tr> <td>Data Params:</td><td>None</td> </tr>
+  <tr> <th>URl:</th><td><a href='http://localhost:8030/routen-service/v1/1'>/routen-service/v1/{routeId}</a></td></tr>
+ <tr> <th>Method:</th><td>GET</a></td> </tr>
+ <tr> <th>URL Params:</th><td>None</td> </tr>
+ <tr> <th>Data Params:</th><td>Required:<code>routeId = [Long]</code></td> </tr>
  <tr> 
-  <td>Success Response:</td>
+  <th>Success Response:</th>
  <td>
-  <ul>
-   <li>Code: 200</li>
-   <li>Content: [<br/>
-   {id: 1, name: 'Route1', dauer: 10, beschreibung: 'Eine beschreibung', stationen: [
-    {routeId: 1, stationId: 1, position:2, station: {id:1, dauer: 5, kuztext: 'Fußbalmuseum'}, ...]} <br/>
-	{id: 1, name: 'Route1', dauer: 10, beschreibung: 'Eine beschreibung', stationen: [
-    routeId: 1, stationId: 1, position:2, station: {id:1, dauer: 5, kuztext: 'Fußbalmuseum'}}, <br/>
-	...
-	]</li>
-  </ul>
+	<ul>
+	<li>Code: 200</li>
+	<li>Content:
+	   <code>{id: 1, name: 'Route1', dauer: 10, beschreibung: 'Eine beschreibung', 
+	   stationen: [{routeId: 1, stationId: 1, position:2, 
+	    station: {id:1, dauer: 5, kuztext: 'Fußbalmuseum'}}]}</code>
+	</li>
+	</ul>
   </td> 
  </tr>
- <tr> <td>Error Response:</td><td>None</a></td> </tr>
+ <tr> <th>Error Response:</th><td>Not implemented</a></td> </tr>
 </table>
+
+<table>
+ <tr>
+  <th colspan="2"><center>Eine route Bewerten</center></th>
+ </tr>
+  <tr> <th>URl:</th><td><a href='http://localhost:8030/routen-service/v1/1:rating=4'>/routen-service/v1/{routeId}:rating</a></td></tr>
+ <tr> <th>Method:</th><td>POST</a></td> </tr>
+ <tr> <th>URL Params:</th><td>Required: <code>rating=[Integer]</code></td> </tr>
+ <tr> <th>Data Params:</th><td>Required: <code>routeId=[Long]</code></td> </tr>
+ <tr> 
+  <th>Success Response:</th>
+ <td>
+	<ul>
+	<li>Code: 200</li>
+	<li>Content:
+	   <code>"Rating has been updated"</code>
+	</li>
+	</ul>
+  </td> 
+ </tr>
+ <tr> <th>Error Response:</th><td>Not implemented</a></td> </tr>
+</table>
+
+<table>
+ <tr>
+  <th colspan="2"><center>Die Bewertung eine Route Abfragen</center></th>
+ </tr>
+  <tr> <th>URl:</th><td><a href='http://localhost:8030/routen-service/v1/1/rating'>/routen-service/v1/{routeId}/rating</a></td></tr>
+ <tr> <th>Method:</th><td>GET</a></td> </tr>
+ <tr> <th>URL Params:</th><td>None</code></td> </tr>
+ <tr> <th>Data Params:</th><td>Required: <code>routeId=[Long]</code></td> </tr>
+ <tr> 
+  <th>Success Response:</th>
+ <td>
+	<ul>
+	<li>Code: 200</li>
+	<li>Content:
+	   <code>Integer</code>
+	</li>
+	</ul>
+  </td> 
+ </tr>
+ <tr> <th>Error Response:</th><td>Not implemented</a></td> </tr>
